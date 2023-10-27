@@ -5,7 +5,7 @@ namespace FullStackAuth_WebAPI.Models
 {
     public class Review
     {
-        {
+       
             [Key]
             public int Id { get; set; }
 
@@ -24,4 +24,4 @@ namespace FullStackAuth_WebAPI.Models
             public User User { get; set; }
         }
     }
-}
+
