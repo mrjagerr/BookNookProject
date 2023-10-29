@@ -1,4 +1,5 @@
 ﻿using FullStackAuth_WebAPI.Configuration;
+using FullStackAuth_WebAPI.Migrations;
 using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ namespace FullStackAuth_WebAPI.Data
     public class ApplicationDbContext : IdentityDbContext<User>
     {
         public DbSet<Car> Cars { get; set; }
-
+        public DbSet<Favorites> Favorites { get; set; }
       
         public DbSet<Review> Reviews { get; set; }
 

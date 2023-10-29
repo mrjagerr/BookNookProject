@@ -18,7 +18,7 @@ namespace FullStackAuth_WebAPI.Models
         [Required]
         public string ThumbnailUrl { get; set; }
 
-        [ForeignKey("Owner")]
+        [ForeignKey("User")]
         public string UserId { get; set; }
 
         public User User { get; set; }
