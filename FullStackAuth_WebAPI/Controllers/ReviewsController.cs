@@ -34,7 +34,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
         // POST api/<ReviewsController>
-        // POST api/cars
+       
         [HttpPost, Authorize]
         public IActionResult Post([FromBody] Review data)
         {
@@ -49,19 +49,19 @@ namespace FullStackAuth_WebAPI.Controllers
                     return Unauthorized();
                 }
 
-                // Set the car's owner ID  the authenticated user's ID we found earlier
+                // Set the reviews's owner ID  the authenticated user's ID we found earlier
                 data.UserId = userId;
 
-                // Add the car to the database and save changes
+                // Add the review to the database and save changes
                 _context.Reviews.Add(data);
                 if (!ModelState.IsValid)
                 {
-                    // If the car model state is invalid, return a 400 bad request response with the model state errors
+                    // If the review model state is invalid, return a 400 bad request response with the model state errors
                     return BadRequest(ModelState);
                 }
                 _context.SaveChanges();
 
-                // Return the newly created car as a 201 created response
+                // Return the newly created review as a 201 created response
                 return StatusCode(201, data);
             }
             catch (Exception ex)

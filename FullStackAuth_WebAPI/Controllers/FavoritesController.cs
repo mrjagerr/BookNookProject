@@ -75,7 +75,7 @@ namespace FullStackAuth_WebAPI.Controllers
                 }
                 _context.SaveChanges();
 
-                // Return the newly created car as a 201 created response
+                // Return the newly created favorite as a 201 created response
                 return StatusCode(201, data);
             }
             catch (Exception ex)
