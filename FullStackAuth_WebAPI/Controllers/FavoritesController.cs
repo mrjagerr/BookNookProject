@@ -28,7 +28,7 @@ namespace FullStackAuth_WebAPI.Controllers
 
         // GET api/<FavoritesController>/5
         [HttpGet("myFavorites"), Authorize]
-        public IActionResult GetUsersCars()
+        public IActionResult GetUsersFavorites()
         {
             try
             {
@@ -50,7 +50,7 @@ namespace FullStackAuth_WebAPI.Controllers
 
         // POST api/<FavoritesController>
         [HttpPost, Authorize]
-        public IActionResult Post([FromBody]Favorites data)
+        public IActionResult Post([FromBody] Favorites data)
         {
             try
             {
@@ -85,16 +85,33 @@ namespace FullStackAuth_WebAPI.Controllers
             }
         }
 
-        // PUT api/<FavoritesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+       
 
         // DELETE api/<FavoritesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{BookId}"), Authorize]
+        public IActionResult Delete(string BookId)
         {
+
+            try
+            {
+                string userId = User.FindFirstValue("id");
+
+                var favorite = _context.Favorites.Find(BookId);
+                if (favorite == null)
+                {
+                    return NotFound();
+                }
+                _context.Favorites.Remove(favorite);
+                _context.SaveChanges();
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                // If an error occurs, return a 500 internal server error with the error message
+                return StatusCode(500, ex.Message);
+            }
+
         }
     }
 }

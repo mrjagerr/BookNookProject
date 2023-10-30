@@ -6,6 +6,10 @@
         public string BookId { get; set; }
         public string Title { get; set; }
         public string ThumbnailUrl { get; set; }
-        public UserForDisplayDto User { get; set; }
+
+        public ICollection<ReviewWithUserDto> Reviews { get; set; }
+        public double AverageRating { get; set; }
+
+
     }
 }
