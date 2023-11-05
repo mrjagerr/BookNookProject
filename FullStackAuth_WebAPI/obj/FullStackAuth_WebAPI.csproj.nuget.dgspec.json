@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\S2Kri\\Desktop\\Booknook\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj": {}
+    "C:\\Users\\bogeo.PC\\Desktop\\BookNookProject\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\S2Kri\\Desktop\\Booknook\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj": {
+    "C:\\Users\\bogeo.PC\\Desktop\\BookNookProject\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\S2Kri\\Desktop\\Booknook\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\bogeo.PC\\Desktop\\BookNookProject\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj",
         "projectName": "FullStackAuth_WebAPI",
-        "projectPath": "C:\\Users\\S2Kri\\Desktop\\Booknook\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj",
-        "packagesPath": "C:\\Users\\S2Kri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\S2Kri\\Desktop\\Booknook\\FullStackAuth_WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\bogeo.PC\\Desktop\\BookNookProject\\FullStackAuth_WebAPI\\FullStackAuth_WebAPI.csproj",
+        "packagesPath": "C:\\Users\\bogeo.PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bogeo.PC\\Desktop\\BookNookProject\\FullStackAuth_WebAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\S2Kri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bogeo.PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +62,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.7, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -70,9 +74,13 @@
               "target": "Package",
               "version": "[7.0.7, )"
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
             "MySql.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[7.0.10, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
@@ -102,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
