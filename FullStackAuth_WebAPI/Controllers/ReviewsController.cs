@@ -4,6 +4,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FullStackAuth_WebAPI.Data;
+using FullStackAuth_WebAPI.DataTransferObjects;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,9 +22,34 @@ namespace FullStackAuth_WebAPI.Controllers
         }
         // GET: api/<ReviewsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult GetAllCars()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                //
+                var reviews = _context.Reviews.Select(c => new ReviewWithUserDto
+                {
+                    Id = c.Id,
+                    BookId= c.BookId,
+                    Text = c.Text,
+                    Rating = c.Rating,
+                   User = new UserForDisplayDto
+                    {
+                        Id = c.User.Id,
+                        FirstName = c.User.FirstName,
+                        LastName = c.User.LastName,
+                        UserName = c.User.UserName,
+                    }
+                }).ToList();
+
+                // Return the list of reviews as a 200 OK response
+                return StatusCode(200, reviews);
+            }
+            catch (Exception ex)
+            {
+                // If an error occurs, return a 500 internal server error with the error message
+                return StatusCode(500, ex.Message);
+            }
         }
 
         // GET api/<ReviewsController>/5

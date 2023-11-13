@@ -4,6 +4,7 @@ using FullStackAuth_WebAPI.Migrations;
 using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,42 +29,43 @@ namespace FullStackAuth_WebAPI.Controllers
 
         // GET api/<BooksDetailController>/5
         [HttpGet("{BookId}")]
-        public IActionResult GetByBookId(string BookId)
+        public IActionResult GetByBookId(string bookId) 
         {
-
+            
             {
                 try
+
                 {
-                    var books = _context.Favorites.Select(b => new BookDetailsDto
+                    var bookStrId = bookId.ToString();
+                    
+                    var bookDetails = new BookDetailsDto
                     {
-                        BookId = b.BookId,
-                        ThumbnailUrl = b.ThumbnailUrl,
-                        Title = b.Title,
-                        Id = b.Id,
-                        AverageRating = _context.Reviews.Average(r=>r.Rating),
-                        Reviews = _context.Reviews.Select(r => new ReviewWithUserDto
+
+
+                        BookId = bookStrId,
+                        AverageRating = _context.Reviews.Where(r => r.BookId == bookStrId).Average(r => r.Rating),
+                        Reviews = _context.Reviews.Where(r=> r.BookId==bookStrId).Select(r => new ReviewWithUserDto
                         {
                             Id = r.Id,
                             Rating = r.Rating,
                             Text = r.Text,
-                            User = new UserForDisplayDto
+                            BookId = r.BookId,
+                            User =  new UserForDisplayDto
                             {
                                 Id = r.User.Id,
                                 FirstName = r.User.FirstName,
                                 LastName = r.User.LastName,
                                 UserName = r.User.UserName,
                             }
-                            
+
+
 
                         }).ToList()
 
-                    });
+                    };
 
 
-
-
-                    // Return the book with list of reviews as a 200 OK response
-                    return StatusCode(200, books);
+                    return Ok(bookDetails);
                 }
                 catch (Exception ex)
                 {
