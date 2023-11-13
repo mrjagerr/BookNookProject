@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using FullStackAuth_WebAPI.Data;
+using FullStackAuth_WebAPI.Migrations;
 using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +35,13 @@ namespace FullStackAuth_WebAPI.Controllers
             {
                 // Retrieve the authenticated user's ID from the JWT token
                 string userId = User.FindFirstValue("id");
+         
+
 
                 // Retrieve all favorites that belong to the authenticated user, including the owner object
                 var favorites = _context.Favorites.Where(c => c.UserId.Equals(userId));
+
+                
 
                 // Return the list of cars as a 200 OK response
                 return StatusCode(200, favorites);
