@@ -1,9 +1,11 @@
-﻿using System.Security.Claims;
+﻿using System.Linq;
+using System.Security.Claims;
 using FullStackAuth_WebAPI.Data;
 using FullStackAuth_WebAPI.Migrations;
 using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,13 +37,13 @@ namespace FullStackAuth_WebAPI.Controllers
             {
                 // Retrieve the authenticated user's ID from the JWT token
                 string userId = User.FindFirstValue("id");
-         
+
 
 
                 // Retrieve all favorites that belong to the authenticated user, including the owner object
                 var favorites = _context.Favorites.Where(c => c.UserId.Equals(userId));
+              
 
-                
 
                 // Return the list of cars as a 200 OK response
                 return StatusCode(200, favorites);
@@ -99,17 +101,28 @@ namespace FullStackAuth_WebAPI.Controllers
 
             try
             {
-                string userId = User.FindFirstValue("id");
-
-                var favorite = _context.Favorites.Find(BookId);
-                if (favorite == null)
+              
+               var favorites = _context.Favorites.FirstOrDefault(c => c.BookId == BookId);
+                if (favorites == null)
                 {
+                    
                     return NotFound();
                 }
-                _context.Favorites.Remove(favorite);
-                _context.SaveChanges();
-                return NoContent();
 
+                
+                var userId = User.FindFirstValue("id");
+                if (string.IsNullOrEmpty(userId) || favorites.UserId != userId)
+                {
+                    
+                    return Unauthorized();
+                }
+
+                
+                _context.Favorites.Remove(favorites);
+                _context.SaveChanges();
+
+                // Return a 204 No Content status code
+                return StatusCode(204);
             }
             catch (Exception ex)
             {
