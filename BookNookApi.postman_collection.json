@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "7cac38c0-90d6-4350-8da6-5f3fbcb55c81",
 		"name": "BookNookApi",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "29363849"
 	},
 	"item": [
@@ -22,31 +22,29 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlN0ZXZlIiwiZW1haWwiOiJTdGV2ZUBib2IuYm9iIiwiaWQiOiI3YWE4Nzg1MS0yY2RhLTQxZDQtYjE3ZC1lOTJjNzk5NDFlM2QiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjk4Njg0MjM2LCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.2Qpo1uNov7RFZevJIBP9IG8keok9K8tsgqGAPF_eck0",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlN0ZXZlIiwiZW1haWwiOiJTdGV2ZUBib2IuYm9iIiwiaWQiOiI0MDJhMjI4OS1iYTZiLTRlMzktYjA0Zi0wYmJhOGY2OTdlMDciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzAwMTA3MDM0LCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.eIo6BgtjC_ur4EsJckdptyphDU7m67z-eZWUBDSaH7c",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"BookID\":\"l3tSzQEACAAJ\",\r\n    \"Text\":\"This Book was Okay\",\r\n    \"Rating\": 3\r\n}",
+							"raw": "{\r\n    \"BookID\":\"BoXO4ItsuaMC\",\r\n    \"Text\":\"This Book was Okay\",\r\n    \"Rating\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "https://localhost:5001/api/reviews",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "5001",
-							"path": [
-								"api",
-								"reviews"
-							]
-						}
+						"url": "https://localhost:5001/api/reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "getallreviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:5001/api/reviews"
 					},
 					"response": []
 				}
@@ -59,21 +57,14 @@
 					"name": "Getfavorites",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:5001/api/Reviews/myFavorites/",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "5001",
-							"path": [
-								"api",
-								"Reviews",
-								"myFavorites",
-								""
-							]
-						}
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlN0ZXZlIiwiZW1haWwiOiJTdGV2ZUBib2IuYm9iIiwiaWQiOiI0MDJhMjI4OS1iYTZiLTRlMzktYjA0Zi0wYmJhOGY2OTdlMDciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzAwMDU5MjQ5LCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.3M1ZG3ess7AMAP-zYQ8hKiHKl1ADVrlw3DwStWPu_F4",
+								"type": "text"
+							}
+						],
+						"url": "https://localhost:5001/api/favorites/myFavorites"
 					},
 					"response": []
 				},
@@ -87,7 +78,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlN0ZXZlIiwiZW1haWwiOiJTdGV2ZUBib2IuYm9iIiwiaWQiOiI3YWE4Nzg1MS0yY2RhLTQxZDQtYjE3ZC1lOTJjNzk5NDFlM2QiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjk4Njg0MjM2LCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.2Qpo1uNov7RFZevJIBP9IG8keok9K8tsgqGAPF_eck0",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlN0ZXZlIiwiZW1haWwiOiJTdGV2ZUBib2IuYm9iIiwiaWQiOiI0MDJhMjI4OS1iYTZiLTRlMzktYjA0Zi0wYmJhOGY2OTdlMDciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzAwMDU5MjQ5LCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.3M1ZG3ess7AMAP-zYQ8hKiHKl1ADVrlw3DwStWPu_F4",
 								"type": "text"
 							}
 						],
@@ -111,6 +102,13 @@
 								"api",
 								"favorites",
 								""
+							],
+							"query": [
+								{
+									"key": "autho",
+									"value": null,
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -119,21 +117,18 @@
 				{
 					"name": "DeleteFavorite",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:5001/api/favorites/l3tSzQEACAAJ",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "5001",
-							"path": [
-								"api",
-								"favorites",
-								"l3tSzQEACAAJ"
-							]
-						}
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlN0ZXZlIiwiZW1haWwiOiJTdGV2ZUBib2IuYm9iIiwiaWQiOiI0MDJhMjI4OS1iYTZiLTRlMzktYjA0Zi0wYmJhOGY2OTdlMDciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzAwMDU5MjQ5LCJpc3MiOiJGdWxsU3RhY2tBdXRoX1dlYkFQSSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEifQ.3M1ZG3ess7AMAP-zYQ8hKiHKl1ADVrlw3DwStWPu_F4",
+								"type": "text"
+							}
+						],
+						"url": "https://localhost:5001/api/favorites/BoXO4ItsuaMC"
 					},
 					"response": []
 				}
@@ -144,6 +139,112 @@
 			"item": [
 				{
 					"name": "GetBookByBookId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the bookId field is not empty\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"\r",
+									"  pm.expect(responseData.bookId).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the 'reviews' array is present and contains at least one element\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.reviews).to.exist.and.to.be.an('array');\r",
+									"    pm.expect(responseData.reviews.length).to.be.at.least(1, \"Array should contain at least one element\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"The averageRating field should be a non-negative integer\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.averageRating).to.be.a('number');\r",
+									"    pm.expect(responseData.averageRating).to.be.at.least(0);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that 'isFavorite' field is a boolean value\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.isFavorite).to.be.a('boolean');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that 'bookId' field is a non-empty string\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData.bookId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the 'averageRating' field is a number between 0 and 5\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.averageRating).to.exist.and.to.be.a('number');\r",
+									"  pm.expect(responseData.averageRating).to.be.within(0, 5);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that 'id' field in each review object is a non-negative integer\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.reviews).to.be.an('array').that.is.not.empty;\r",
+									"    \r",
+									"    responseData.reviews.forEach(function(review) {\r",
+									"        pm.expect(review.id).to.be.a('number').and.to.be.greaterThan(-1);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that 'text' field in each review object is a non-empty string\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.reviews).to.be.an('array').that.is.not.empty;\r",
+									"    \r",
+									"    responseData.reviews.forEach(function(review) {\r",
+									"        pm.expect(review.text).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the 'rating' field in each review object is a number between 1 and 5\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.reviews).to.be.an('array').that.is.not.empty;\r",
+									"    \r",
+									"    responseData.reviews.forEach(function(review) {\r",
+									"        pm.expect(review.rating).to.be.a('number');\r",
+									"        pm.expect(review.rating).to.be.within(1, 5);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if data is sent to the front end\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.bookId).to.exist.and.to.not.be.empty;\r",
+									"    pm.expect(responseData.reviews).to.exist.and.to.be.an('array');\r",
+									"    pm.expect(responseData.averageRating).to.exist.and.to.be.a('number');\r",
+									"    pm.expect(responseData.isFavorite).to.exist.and.to.be.a('boolean');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -159,19 +260,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "https://localhost:5001/api/booksdetail/l3tSzQEACAAJ",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "5001",
-							"path": [
-								"api",
-								"booksdetail",
-								"l3tSzQEACAAJ"
-							]
-						}
+						"url": "https://localhost:5001/api/booksdetail/BoXO4ItsuaMC"
 					},
 					"response": []
 				}
