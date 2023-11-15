@@ -22,7 +22,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
         // GET: api/<ReviewsController>
         [HttpGet]
-        public IActionResult GetAllCars()
+        public IActionResult GetAllReviews()
         {
             try
             {

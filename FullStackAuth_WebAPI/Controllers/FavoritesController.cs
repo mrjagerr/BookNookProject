@@ -73,7 +73,7 @@ namespace FullStackAuth_WebAPI.Controllers
                 // Set the favorite owner ID  the authenticated user's ID we found earlier
                 data.UserId = userId;
 
-                // Add the car to the database and save changes
+                // Add the favorite to the database and save changes
                 _context.Favorites.Add(data);
                 if (!ModelState.IsValid)
                 {
